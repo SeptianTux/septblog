@@ -1,3 +1,5 @@
+#!/bin/bash
+
 check_if_its_root() {
     if [ "$(id -u)" -ne 0 ]; then
         echo "You must run this script as root.";
