@@ -1,0 +1,21 @@
+{
+    "protocol"                  : "protocol",
+    "host"                      : "host",
+    "port"                      : 0,
+    "jwt_secret_key"            : "jwt_secret_key",
+    "access_token_expired"      : 0,
+    "frontend"                  :
+                                    {
+                                        "protocol"      : "protocol",
+                                        "host"          : "host",
+                                        "port"          : 0
+                                    },
+    "database"                  :
+                                    {
+                                        "host"          : "host",
+                                        "port"          : 0,
+                                        "username"      : "username",
+                                        "password"      : "password",
+                                        "name"          : "database_name"
+                                    }
+}

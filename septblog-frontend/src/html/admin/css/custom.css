@@ -1,0 +1,159 @@
+#visitorsChart {
+    max-height: 320px;
+}
+
+#tableVisitors {
+    width: 100%;
+}
+
+.admin-profile-photo {
+    /*background-color: black;*/
+    /*border-radius: 8px;*/
+    max-width: 200px;
+}
+
+.admin-profile-change-photo-button-div {
+    margin-top: 10px;
+}
+
+.admin-profile-change-photo-button-input {
+    display: none;
+}
+
+.admin-profile-change-photo-button-label {
+    max-width: 200px;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.admin-profile-change-value-textarea {
+    height: 100px;
+}
+
+.articles-link-small-div {
+    font-size: smaller;
+    opacity: 70%;
+}
+
+.articles-link-small-div {
+    opacity: 0%;
+}
+
+.articles-link-small-td:hover .articles-link-small-div {
+    opacity: 70%;
+}
+
+.article-title {
+    min-width: 400px;
+    max-width: 400px;
+}
+
+
+@media screen and (max-width: 782px) {
+    .table-settings td, .table-settings th {
+        display: block;
+        width: auto;
+        vertical-align: middle;
+    }
+}
+
+.table-settings {
+    width: 100%;
+}
+
+.users-pp {
+    max-height: 64px;
+    max-width: 64px;
+}
+
+.table-users td, th {
+    vertical-align: middle;
+}
+
+.table-articles td, th {
+    vertical-align: middle;
+}
+
+.table-visitors td, th {
+    vertical-align: middle;
+}
+
+.table-users .users-name {
+    vertical-align: top;
+    padding-left: 15px;
+}
+
+.article-editor {
+    min-height: 500px;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+.card-articles {
+    height: 1000px;
+}
+
+.padding-top-32px {
+    padding-top: 32px;
+}
+
+.article-category {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.article-title {
+    width: 10%;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.test {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    
+}
+
+#articleEditorContainer {
+    position: relative;
+}
+
+.upload-progressbar {
+    position: absolute; /* Take out of normal flow */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent */
+    z-index: 1;
+
+    /* Center content */
+    display: flex;
+    justify-content: center; /* Horizontal center */
+    align-items: center;     /* Vertical center */
+}
+
+#uploadProgressbar {
+    width: 50%;
+}
+
+#avatar {
+    max-width: 200px;
+}
+
+.dashboard-no-visitors-warning {
+    text-align: center;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.articles-no-articles-warning, .trashed-articles-no-articles-warning,
+.visitors-no-visitors-warning {
+    text-align: center;
+    margin-top: 30%;
+    margin-bottom: 30%;
+}

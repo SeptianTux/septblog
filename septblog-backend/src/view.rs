@@ -1,0 +1,37 @@
+
+pub mod main;
+
+pub mod admin_check_credentials_view;
+pub mod admin_signup_view;
+pub mod admin_login_view;
+pub mod admin_article_editor_view;
+pub mod admin_article_editor_get_article_categories_view;
+pub mod admin_article_editor_get_article_view;
+pub mod admin_image_upload_view;
+pub mod admin_dashboard_chart_view;
+pub mod admin_dashboard_visitors_view;
+pub mod admin_visitors_view;
+pub mod admin_articles_view;
+pub mod admin_articles_move_to_trash_view;
+pub mod admin_trashed_articles_view;
+pub mod admin_trashed_articles_deletion_view;
+pub mod admin_profile_get_view;
+pub mod admin_profile_put_view;
+pub mod admin_users_get_view;
+pub mod admin_users_put_view;
+pub mod admin_settings_get_view;
+pub mod admin_settings_put_view;
+pub mod admin_security_change_password_view;
+pub mod admin_security_change_email_view;
+pub mod admin_logged_in_as_view;
+pub mod admin_get_user_level_view;
+
+pub mod article_view;
+pub mod articles_view;
+pub mod category_view;
+pub mod user_view;
+pub mod get_site_title_view;
+pub mod get_site_tagline_view;
+pub mod get_full_year;
+pub mod install_view;
+pub mod already_installed_view;

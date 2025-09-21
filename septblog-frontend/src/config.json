@@ -1,0 +1,11 @@
+{
+    "protocol"      : "protocol",
+    "host"          : "host",
+    "port"          : 0,
+    "backend"       :
+                        {
+                            "protocol"  : "protocol",
+                            "host"      : "host",
+                            "port"      : 0
+                        }
+}

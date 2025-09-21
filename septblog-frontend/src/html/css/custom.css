@@ -1,0 +1,129 @@
+.col-main {
+    margin-top: 150px;
+}
+
+/*
+@media screen and (max-width: 782px) {
+    .col-main {
+        margin-top: 0px;
+    }
+}
+*/
+
+@media screen and (max-width: 782px) {
+    .col-main {
+        margin-top: 0px;
+    }
+}
+
+.rounded-8px {
+    border-radius: 8px;
+}
+
+.page-footer {
+    background-color: #efefef;
+    padding: 16px;
+    text-align: center;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.link-with-no-underline {
+    text-decoration: none;
+}
+
+.padding-12px {
+    padding: 12px;
+}
+
+.margin-8px {
+    margin: 8px;
+}
+
+.home-article-top-background, .category-article-top-background {
+    background-color: #0dcaf0;
+    min-height: 300px;
+}
+
+.home-articles, .category-articles, .article, .about {
+    background-color: #ffffff;
+    margin-bottom: 0px;
+}
+
+.home-articles-container, .category-articles-container {
+    background-color: #ffffff;
+    margin-bottom: 25px;
+}
+
+.home-articles-no-articles, .category-articles-no-articles {
+    text-align: center;
+    margin-top: 50%;
+    margin-bottom: 50%;
+}
+
+.article {
+    margin-bottom: 25px;
+}
+
+.profile-image-rounded {
+    width: 200px;
+    height: 200px;
+    margin-top: -100px;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    object-fit: cover;
+}
+
+.profile-about {
+    text-align: center;
+    margin-top: 64px;
+    margin-bottom: 64px;
+}
+
+.spinner-profile-about {
+    margin-top: 64px;
+    margin-bottom: 64px;
+}
+
+.profile-name {
+    text-align: center;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.col-main-profile {
+    margin-top: 100px;
+}
+
+.spinner-home-articles-initial {
+    margin-top: 128px;
+    margin-bottom: 128px;
+}
+
+.spinner-home-articles-infinite-scroll {
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.spinner-article {
+    margin-top: 200px;
+    margin-bottom: 200px;
+}
+
+.home-articles-alert-container {
+    margin: 20px;
+}
+
+img {
+    max-width: 100%;
+}
+
+.layout-install {
+    margin-top: 100px;
+}
+
+.installation-finish-message {
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}

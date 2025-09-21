@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>null</title>
+        <link href="/admin/css/styles.css" rel="stylesheet" />
+        <link href="/admin/css/custom.css" rel="stylesheet" />
+        <script src="/admin/fontawesome@6.3.0/all.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div id="layoutAuthentication">
+            <div id="layoutAuthentication_content">
+                <main>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-7">
+                                <div class="card shadow-lg border-1 rounded-lg mt-5">
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Account</h3></div>
+                                    <div class="card-body">
+                                        <div id="signupAlert" class="signup-alert"></div>
+                                        <form id="form" class="needs-validation" onsubmit="return false;" novalidate>
+                                            <div class="row mb-3">
+                                                <div class="col-md-6">
+                                                    <div class="form-floating mb-3 mb-md-0">
+                                                        <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" required/>
+                                                        <label for="inputFirstName">First name</label>
+                                                        <div id="inputFirstNameInvalidFeedback" class="invalid-feedback invalid-feedback-first-name">
+                                                            Please fill the First Name form.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-floating">
+                                                        <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" required/>
+                                                        <label for="inputLastName">Last name</label>
+                                                        <div id="inputLastNameInvalidFeedback" class="invalid-feedback">
+                                                            Please fill the Last Name form.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="inputUsername" type="username" placeholder="username" required/>
+                                                <label for="inputUsername">Username</label>
+                                                <div id="inputUsernameInvalidFeedback" class="invalid-feedback">
+                                                    Please choose a username.
+                                                </div>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" required/>
+                                                <label for="inputEmail">Email address</label>
+                                                <div id="inputEmailInvalidFeedback" class="invalid-feedback">
+                                                    Please fill an email address.
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-6">
+                                                    <div class="form-floating mb-3 mb-md-0">
+                                                        <input class="form-control" id="inputPassword1" type="password" placeholder="Create a password" required/>
+                                                        <label for="inputPassword1">Password</label>
+                                                        <div id="inputPassword1InvalidFeedback" class="invalid-feedback">
+                                                            Please fill a password.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-floating mb-3 mb-md-0">
+                                                        <input class="form-control" id="inputPassword2" type="password" placeholder="Confirm password" required/>
+                                                        <label for="inputPassword2">Confirm Password</label>
+                                                        <div id="inputPassword2InvalidFeedback" class="invalid-feedback">
+                                                            Please confirm the password.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="buttonContainer" class="d-grid gap-2">
+                                                <button id="createAccountButton" type="button" class="btn btn-primary" onclick="main.view.submit();">Create Account</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="card-footer text-center py-3">
+                                        <div class="small"><a href="login">Have an account? Go to login</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+            <div id="layoutAuthentication_footer">
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div id="copyright" class="text-muted"></div>
+                            <div>
+                                <a href="/admin/privacy-policy">Privacy Policy</a>
+                                &middot;
+                                <a href="/admin/terms-and-conditions">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script src="/admin/bootstrap@5.2.3/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script type="module" src="/admin/js/main.js"></script>
+    </body>
+</html>
