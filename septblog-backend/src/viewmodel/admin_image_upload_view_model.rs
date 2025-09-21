@@ -70,7 +70,7 @@ pub async fn upload(mut payload: actix_multipart::Multipart) -> Result<String, c
 
         let extension = kind.map(|k| k.extension()).unwrap_or("bin");
         let filename = format!("{}.{}", uuid::Uuid::now_v7(), extension);
-        let filepath = format!("./uploads/{}", filename);
+        let filepath = format!("/var/www/septblog/uploads/{}", filename);
 
         let mut file = match std::fs::File::create(&filepath) {
             Ok(v) => v,

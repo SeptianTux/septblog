@@ -29,10 +29,9 @@ pub fn verify_credencials(
     };
 
     let result: Option<(String,)> = match conn.exec_first(
-        "SELECT password FROM users WHERE email = :email AND password = :password",
+        "SELECT password FROM users WHERE email = :email",
         params! {
-            "email"     => email,
-            "password"  => password,
+            "email"     => email
         },
     ) {
         Ok(res) => res,
@@ -54,9 +53,21 @@ pub fn verify_credencials(
         None => "".to_string()
     };
 
-    let argon2 = argon2::Argon2::default();
-    let parsed_hash = argon2::PasswordHash::new(&password_hash).unwrap();
-    let is_valid = argon2.verify_password(password.as_bytes(), &parsed_hash).is_ok();
+    let parsed_hash = match argon2::PasswordHash::new(&password_hash) {
+        Ok(val) => val,
+        Err(err) => {
+            log::error!("Failed to get password hash.");
+            log::debug!("{:?}", err);
+
+            return Err(
+                crate::error::Error {
+                    code: 748,
+                    message: "Failed to get password hash.".to_string()
+                }
+            )
+        }
+    };
+    let is_valid = argon2::Argon2::default().verify_password(password.as_bytes(), &parsed_hash).is_ok();
 
     Ok(is_valid)
 }
