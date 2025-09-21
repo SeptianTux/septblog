@@ -1,3 +1,5 @@
+#!/bin/bash
+
 check_if_its_root() {
     if [ "$(id -u)" -ne 0 ]; then
         echo "You must run this script as root.";
@@ -12,7 +14,7 @@ install_binary_files() {
         cp -v septblog-backend/target/release/septblog-backend /usr/local/bin/septblog-backend;
     else
         echo "Missing septblog-backend/target/release/septblog-backend file...";
-        echo "Make sure you build your project at first...";
+        echo "Make sure you build the project at first...";
         echo "Installation aborted...";
         exit 456;
     fi
@@ -21,7 +23,7 @@ install_binary_files() {
         cp -v septblog-frontend/target/release/septblog-frontend /usr/local/bin/septblog-frontend;
     else
         echo "Missing septblog-frontend/target/release/septblog-frontend file...";
-        echo "Make sure you build your project at first...";
+        echo "Make sure you build the project at first...";
         echo "Installation aborted...";
         exit 893;
     fi
