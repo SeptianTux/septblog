@@ -128,28 +128,28 @@ if_var_www_is_not_exist() {
     fi
 }
 
-create_var_www_septblog_directory() {
+create_var_www_septblog_dir() {
     if [ ! -d /var/www/septblog ]; then
         mkdir -p /var/www/septblog;
     fi
 
-    chown -v septblog:septblog /var/www/septblog;
+    chown -Rv septblog:septblog /var/www/septblog;
 }
 
-create_uploads_directory() {
+create_var_www_septblog_public_dir() {
+    if [ ! -d /var/www/septblog/public ]; then
+        mkdir -p /var/www/septblog/public;
+    fi
+
+    chown -Rv septblog:septblog /var/www/septblog/public;
+}
+
+create_var_www_septblog_uploads_dir() {
     if [ ! -d /var/www/septblog/uploads ]; then
         mkdir -p /var/www/septblog/uploads;
     fi
 
     chown -v septblog:septblog /var/www/septblog/uploads;
-}
-
-create_var_www_septblog_public_dir() {
-    if [ ! -d /var/www/septblog/html ]; then
-        mkdir -p /var/www/septblog/public;
-    fi
-
-    chown -Rv septblog:septblog /var/www/septblog/public;
 }
 
 install_frontend() {
@@ -172,9 +172,9 @@ fire() {
     create_systemd_service_file_for_backend;
     reload_systemd;
     if_var_www_is_not_exist;
-    create_var_www_septblog_directory;
-    create_uploads_directory;
-    create_html_dir;
+    create_var_www_septblog_dir;
+    create_var_www_septblog_uploads_dir;
+    create_var_www_septblog_public_dir;
     install_frontend;
 }
 
