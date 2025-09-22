@@ -58,7 +58,55 @@ Go to [http://your-frontend-host:port/install](#) to install the site. Fill all 
 After you finish the installation proccess you can access the Admin Panel. The Admin Panel is in [http://your-frontend-host:port/admin](#). Then you can login using account you were registered in the installation process.
 
 ## Debug
-You can debug SeptBlog service using ```journalctl``` command. Here is examples:
+You can debug SeptBlog service using ```journalctl``` command. At first you need to edit the SeptBlog's systemd service unit.
+```
+# You can use your favourite editor, but here in the example we use vim.
+sudo vim /etc/systemd/system/septblog-backend.service
+```
+
+Find line like this :
+```
+Environment="RUST_LOG=error"
+```
+
+The edit to something like this :
+```
+Environment="RUST_LOG=debug"
+```
+
+And then save the file.
+
+```
+# You can use your favourite editor, but here in the example we use vim.
+sudo vim /etc/systemd/system/septblog-frontend.service
+```
+
+Find line like this :
+```
+Environment="RUST_LOG=error"
+```
+
+The edit to something like this :
+```
+Environment="RUST_LOG=debug"
+```
+
+And then save the file.
+
+Reinitializes the systemd daemon.
+```
+sudo systemctl daemon-reload
+```
+
+Reload SeptBlog services.
+```
+sudo systemctl restart septblog-frontend.service
+```
+```
+sudo systemctl restart septblog-backend.service
+```
+
+Then you can use journalctl to debug the service.
 ```
 # If you want to debug the frontend.
 journalctl -u septblog-frontend.service -f
