@@ -69,7 +69,7 @@ Find line like this :
 Environment="RUST_LOG=error"
 ```
 
-The edit to something like this :
+Then edit to something like this :
 ```
 Environment="RUST_LOG=debug"
 ```
@@ -86,7 +86,7 @@ Find line like this :
 Environment="RUST_LOG=error"
 ```
 
-The edit to something like this :
+Then edit to something like this :
 ```
 Environment="RUST_LOG=debug"
 ```
