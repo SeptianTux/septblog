@@ -41,6 +41,16 @@ Use your favourite editor with superuser privilage.
 Edit ```/etc/septblog/frontend.json``` file and fill all the configuration file need.
 Edit ```/etc/septblog/backend.json``` file and fill all the configuration file need.
 
+### Start SeptBlog Frontend Service
+```
+sudo systemctl start septblog-frontend.service
+```
+
+### Start SeptBlog Backend Service
+```
+sudo systemctl start septblog-backend.service
+```
+
 ### Install The Site
 Go to [http://your-frontend-host:port/install](#) to install the site. Fill all the form provided by the installer. Make sure you finish the installation proccess, the installer will bring you to a page that will tell you if the installation is success if you finish it.
 
