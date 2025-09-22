@@ -50,7 +50,9 @@ pub fn verify_credencials(
 
     let password_hash = match result {
         Some(val) => val.0,
-        None => "".to_string()
+        None => {
+            return Ok(false);
+        }
     };
 
     let parsed_hash = match argon2::PasswordHash::new(&password_hash) {
