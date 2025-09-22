@@ -56,3 +56,14 @@ Go to [http://your-frontend-host:port/install](#) to install the site. Fill all 
 
 ### Login To Admin Panel
 After you finish the installation proccess you can access the Admin Panel. The Admin Panel is in [http://your-frontend-host:port/admin](#). Then you can login using account you were registered in the installation process.
+
+## Debug
+You can debug SeptBlog service using ```journalctl``` command. Here is examples:
+```
+# If you want to debug the frontend.
+journalctl -u septblog-frontend.service -f
+```
+```
+# If you want to debug the backend
+journalctl -u septblog-backend.service -f
+```
