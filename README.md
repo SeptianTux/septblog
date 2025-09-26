@@ -12,13 +12,13 @@ SeptBlog can be deployed to almost every popular operating systems. But here is 
 * git       (To clone this repository)
 
 ### Clone Repository
-```
+```bash
 git clone https://github.com/SeptianTux/septblog.git
 cd septblog
 ```
 
 ### Build The Project
-```
+```bash
 cd septblog-frontend
 cargo build --release
 cd ../
@@ -29,7 +29,7 @@ cd ../
 
 ### Install To The System
 Use sudo or equivalen to run the installer script.
-```
+```bash
 sudo ./install.sh
 ```
 
@@ -42,13 +42,21 @@ Edit ```/etc/septblog/frontend.json``` file and fill all the configuration file 
 Edit ```/etc/septblog/backend.json``` file and fill all the configuration file need.
 
 ### Start SeptBlog Frontend Service
-```
+```bash
 sudo systemctl start septblog-frontend.service
 ```
 
 ### Start SeptBlog Backend Service
-```
+```bash
 sudo systemctl start septblog-backend.service
+```
+
+### Check If There Is Error In Frontend Or Backend Service
+```bash
+journalctl -u septblog-frontend.service -f
+```
+```bash
+journalctl -u septblog-backend.service -f
 ```
 
 ### Install The Site
@@ -59,7 +67,7 @@ After you finish the installation proccess you can access the Admin Panel. The A
 
 ## Debug
 You can debug SeptBlog service using ```journalctl``` command. At first you need to edit the SeptBlog's systemd service unit.
-```
+```bash
 # You can use your favourite editor, but here in the example we use vim.
 sudo vim /etc/systemd/system/septblog-backend.service
 ```
@@ -76,7 +84,7 @@ Environment="RUST_LOG=debug"
 
 And then save the file.
 
-```
+```bash
 # You can use your favourite editor, but here in the example we use vim.
 sudo vim /etc/systemd/system/septblog-frontend.service
 ```
@@ -94,24 +102,24 @@ Environment="RUST_LOG=debug"
 And then save the file.
 
 Reinitializes the systemd daemon.
-```
+```bash
 sudo systemctl daemon-reload
 ```
 
 Reload SeptBlog services.
-```
+```bash
 sudo systemctl restart septblog-frontend.service
 ```
-```
+```bash
 sudo systemctl restart septblog-backend.service
 ```
 
 Then you can use journalctl to debug the service.
-```
+```bash
 # If you want to debug the frontend.
 journalctl -u septblog-frontend.service -f
 ```
-```
+```bash
 # If you want to debug the backend
 journalctl -u septblog-backend.service -f
 ```
