@@ -13,7 +13,7 @@ pub fn get(pool: &std::sync::Arc<mysql::Pool>) -> Result<Vec<String>, crate::err
     };
 
     for i in categories {
-        ret.push(i.name.clone());
+        ret.push(i.name);
     }
 
     Ok(ret)

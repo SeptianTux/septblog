@@ -22,8 +22,7 @@ pub fn get(pool: &std::sync::Arc<mysql::Pool>) -> Result<Vec<Categories>, crate:
     };
 
     let query = "SELECT name FROM categories";
-    let categories = conn
-        .query_map(
+    let categories = conn.query_map(
             query,
             | name| Categories { name },
         );
