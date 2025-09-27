@@ -152,6 +152,13 @@ create_var_www_septblog_uploads_dir() {
     chown -v septblog:septblog /var/www/septblog/uploads;
 }
 
+cp_profile_photo_image_file() {
+    if [ -f septblog-backend/src/user.jpg ]; then
+        cp -v septblog-backend/src/user.jpg /var/www/septblog/uploads;
+        chown -v septblog:septblog /var/www/septblog/uploads/user.jpg
+    fi
+}
+
 install_frontend() {
     cp -v septblog-frontend/src/html/*.html /var/www/septblog/public/;
     cp -Rv septblog-frontend/src/html/admin/ /var/www/septblog/public/;
@@ -173,8 +180,9 @@ fire() {
     reload_systemd;
     if_var_www_is_not_exist;
     create_var_www_septblog_dir;
-    create_var_www_septblog_uploads_dir;
     create_var_www_septblog_public_dir;
+    create_var_www_septblog_uploads_dir;
+    cp_profile_photo_image_file;
     install_frontend;
 }
 
