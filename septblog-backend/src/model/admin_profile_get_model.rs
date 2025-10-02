@@ -66,7 +66,7 @@ pub fn get_profile_data_from_database(
             };
 
             if ret.avatar.is_none() {
-                ret.avatar = Some(String::from("/uploads/user.jpg"));
+                ret.avatar = Some(String::from("/uploads/user.png"));
             }
 
             return Ok(Some(ret));

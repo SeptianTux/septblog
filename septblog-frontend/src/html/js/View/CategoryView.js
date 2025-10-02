@@ -163,7 +163,7 @@ export class CategoryView {
                                                 '</p>' +
                                             '</div>' +
                                             '<div>' +
-                                                '<small>Written by <a style="text-decoration: none;" href="/profile/' + articlesFromBackend.data[i].author.username + '">' + authorName +'</a> in ' + writtenAt + '</small>' +
+                                                '<small>Written by <a style="text-decoration: none;" href="/user/' + articlesFromBackend.data[i].author.username + '">' + authorName +'</a> in ' + writtenAt + '</small>' +
                                             '</div>' +
                                         '</div>';
             }

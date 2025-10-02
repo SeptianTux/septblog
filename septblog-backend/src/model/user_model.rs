@@ -56,7 +56,7 @@ pub fn get_users_data(
     };
 
     if ret.avatar.is_none() {
-        ret.avatar = Some("/uploads/user.jpg".to_string());
+        ret.avatar = Some("/uploads/user.png".to_string());
     }
 
     Ok(ret)

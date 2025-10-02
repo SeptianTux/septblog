@@ -153,9 +153,9 @@ create_var_www_septblog_uploads_dir() {
 }
 
 cp_profile_photo_image_file() {
-    if [ -f septblog-backend/src/user.jpg ]; then
-        cp -v septblog-backend/src/user.jpg /var/www/septblog/uploads;
-        chown -v septblog:septblog /var/www/septblog/uploads/user.jpg
+    if [ -f septblog-backend/src/user.png ]; then
+        cp -v septblog-backend/src/user.png /var/www/septblog/uploads;
+        chown -v septblog:septblog /var/www/septblog/uploads/user.png
     fi
 }
 

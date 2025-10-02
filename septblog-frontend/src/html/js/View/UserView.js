@@ -69,7 +69,12 @@ export class UserView {
         
         this.setProfileImage(profileData.avatar);
         this.setProfileName(fullName);
-        this.setProfileAbout(profileData.about);
+
+        if (profileData.about !== null) {
+            this.setProfileAbout(profileData.about);
+        } else {
+            this.setProfileAbout("");
+        }
     }
 
     async getProfileDataFromBackend(username) {

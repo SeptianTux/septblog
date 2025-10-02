@@ -95,7 +95,7 @@ pub fn get_users_data_from_database(
             None => 0
         };
 
-        let user = crate::viewmodel::admin_users_get_view_model::User {
+        let mut user = crate::viewmodel::admin_users_get_view_model::User {
             id: i.id,
             avatar: i.avatar,
             first_name: i.first_name,
@@ -106,6 +106,10 @@ pub fn get_users_data_from_database(
             level: i.level,
             status: i.status
         };
+
+        if user.avatar.is_none() {
+            user.avatar = Some(String::from("/uploads/user.png"));
+        }
 
         ret.push(user);
 

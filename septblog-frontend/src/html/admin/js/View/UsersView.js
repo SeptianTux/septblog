@@ -151,7 +151,7 @@ export class UsersView {
                     const date = new Date(getUsers.data[i].created * 1000);
                     const created = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
                     const userLevel = getUsers.data[i].level > 0 ? "Standard User" : "Administrator";
-                    const avatar = getUsers.data[i].avatar === null ? "/uploads/user.jpg" : getUsers.data[i].avatar;
+                    const avatar = getUsers.data[i].avatar === null ? "/uploads/user.png" : getUsers.data[i].avatar;
                     const status = getUsers.data[i].status === 0 ? "Active" : "Suspended";
                     const suspendOrActivate = getUsers.data[i].status === 0 ? 
                                                     '<li id="suspendOrActivate-' + getUsers.data[i].id + '"><a onclick="main.view.markUserIdForSuspend(' + getUsers.data[i].id + ');" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#userSuspendModal" href="#">Suspend</a></li>'
