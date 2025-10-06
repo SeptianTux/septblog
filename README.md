@@ -2,7 +2,7 @@
 SeptBlog is a simple blog platform. It is written in Rust at backend; JavaScript, HTML, CSS, and Bootstrap at the frontend. Septblog was designed to be simple, fast, and secure.
 
 ## Deploy
-SeptBlog can be deployed to almost every popular operating systems. But here is an simple example to deploy it to a local Linux machine.
+SeptBlog can be deployed to almost every popular operating systems. But here is a simple example to deploy it to a local Linux machine.
 
 ### Dependencies
 * bash      (To run the installer)
