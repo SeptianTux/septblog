@@ -86,7 +86,7 @@ Environment="RUST_LOG=debug"
 
 And then save the file.
 
-Edit /etc/systemd/system/septblog-backend.service file
+Edit /etc/systemd/system/septblog-frontend.service file
 ```bash
 # You can use your favourite editor, but here in the example we use vim.
 sudo vim /etc/systemd/system/septblog-frontend.service
