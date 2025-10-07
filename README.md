@@ -67,6 +67,8 @@ After you finish the installation proccess you can access the Admin Panel. The A
 
 ## Debug
 You can debug SeptBlog service using ```journalctl``` command. At first you need to edit the SeptBlog's systemd service unit.
+
+Edit /etc/systemd/system/septblog-backend.service file
 ```bash
 # You can use your favourite editor, but here in the example we use vim.
 sudo vim /etc/systemd/system/septblog-backend.service
@@ -84,6 +86,7 @@ Environment="RUST_LOG=debug"
 
 And then save the file.
 
+Edit /etc/systemd/system/septblog-backend.service file
 ```bash
 # You can use your favourite editor, but here in the example we use vim.
 sudo vim /etc/systemd/system/septblog-frontend.service
