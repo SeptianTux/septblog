@@ -61,12 +61,7 @@ pub fn verify_credencials(
             log::error!("Failed to get password hash.");
             log::debug!("{:?}", err);
 
-            return Err(
-                crate::error::Error {
-                    code: 748,
-                    message: "Failed to get password hash.".to_string()
-                }
-            )
+            return Ok(false);
         }
     };
     let is_valid = argon2::Argon2::default().verify_password(password.as_bytes(), &parsed_hash).is_ok();

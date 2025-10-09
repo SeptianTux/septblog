@@ -10,6 +10,14 @@ check_if_its_root() {
 install_binary_files() {
     echo "Installing binary files...";
 
+    backend_stopped=0;
+    frontend_stopped=0;
+
+    if systemctl is-active septblog-backend.service --quiet; then
+        systemctl stop septblog-backend.service;
+        backend_stopped = 1;
+    fi
+
     if [ -f septblog-backend/target/release/septblog-backend ]; then
         cp -v septblog-backend/target/release/septblog-backend /usr/local/bin/septblog-backend;
     else
@@ -17,6 +25,11 @@ install_binary_files() {
         echo "Make sure you build the project at first...";
         echo "Installation aborted...";
         exit 456;
+    fi
+
+    if systemctl is-active septblog-frontend.service --quiet; then
+        systemctl stop septblog-frontend.service;
+        frontend_stopped = 1;
     fi
 
     if [ -f septblog-frontend/target/release/septblog-frontend ]; then
@@ -27,6 +40,15 @@ install_binary_files() {
         echo "Installation aborted...";
         exit 893;
     fi
+
+    if [ $backend_stopped -eq 1 ]; then
+        systemctl start septblog-backend.service;
+    fi
+
+    if [ $frontend_stopped -eq 1 ]; then
+        systemctl start septblog-frontend.service;
+    fi
+
 }
 
 create_etc_septblog_if_not_exist() {
@@ -46,6 +68,19 @@ copy_config_file() {
         fi
     else
         echo "Missing septblog-backend/src/config.json file...";
+        echo "Installation aborted...";
+
+        exit 235;
+    fi
+
+    if [ -f septblog-frontend/src/config.json ]; then
+        if [ ! -f /etc/septblog/frontend.json ]; then
+            cp -v septblog-frontend/src/config.json /etc/septblog/frontend.json;
+            chmod 640 /etc/septblog/frontend.json;
+            chown -v root:septblog /etc/septblog/frontend.json;
+        fi
+    else
+        echo "Missing septblog-frontend/src/config.json file...";
         echo "Installation aborted...";
 
         exit 235;

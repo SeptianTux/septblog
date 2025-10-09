@@ -17,7 +17,7 @@ export class Config {
                             ?
                                 this.backend.protocol + this.backend.host + ":" + this.backend.port
                             :
-                                this.backend.protocol + this.backend.host + ":" + this.backend.port + "/" + this.backend.path;
+                                this.backend.protocol + this.backend.host + ":" + this.backend.port + this.backend.path;
     }
 }
 

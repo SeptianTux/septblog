@@ -1,6 +1,9 @@
 use mysql::prelude::Queryable;
 use mysql::params;
 
+use argon2::PasswordVerifier;
+use argon2::PasswordHasher;
+
 pub fn update_password_in_database(
     pool: &std::sync::Arc<mysql::Pool>,
     user_id: &u64,
@@ -48,7 +51,25 @@ pub fn update_password_in_database(
         }
     };
 
-    if old_password != data.old_password {
+    let password_hash = old_password;
+
+    let parsed_hash = match argon2::PasswordHash::new(&password_hash) {
+        Ok(val) => val,
+        Err(err) => {
+            log::error!("Failed to get password hash.");
+            log::debug!("{:?}", err);
+
+            return Err(
+                crate::error::Error {
+                    code: 748,
+                    message: "Failed to get password hash.".to_string()
+                }
+            )
+        }
+    };
+    let is_valid = argon2::Argon2::default().verify_password(data.old_password.as_bytes(), &parsed_hash).is_ok();
+
+    if !is_valid {
         return Err(
             crate::error::Error {
                 code: 679,
@@ -57,13 +78,29 @@ pub fn update_password_in_database(
         );
     }
 
+    let salt = argon2::password_hash::SaltString::generate(&mut rand_core::OsRng);
+    let argon2 = argon2::Argon2::default();
+    let hashed_new_password = match argon2.hash_password(data.new_password.as_bytes(), &salt) {
+        Ok(val) => val,
+        Err(err) => {
+            log::error!("Failed to hash password.");
+            log::debug!("{:?}", err);
+
+            return Err(
+                crate::error::Error {
+                    code: 738,
+                    message: "Failed to hash password.".to_string()
+                }
+            )
+        }
+    };
 
     let update_data = conn.exec_drop(
         r"UPDATE users SET password = :password WHERE id = :user_id
         ",
         params! {
-            "password" => &data.new_password,
-            "user_id" => &user_id
+            "password" => hashed_new_password.to_string(),
+            "user_id" => user_id
         }
     );
 
