@@ -5,7 +5,5 @@ export class AboutModel {
 
     constructor(config) {
         this.#config = config;
-
-        console.log("Hello from model.");
     }
 }
