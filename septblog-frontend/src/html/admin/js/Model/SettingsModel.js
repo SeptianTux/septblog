@@ -57,7 +57,7 @@ export class SettingsModel {
         let res = null;
 
         try {
-            const url = this.#config.backendProtocol + this.#config.backendHost + ":" + this.#config.backendPort + "/admin/settings";
+            const url = this.#config.backendUrl + "/admin/settings";
             res = await this.getDataFromBackend(url);
         } catch(error) {
             throw error;
@@ -79,7 +79,7 @@ export class SettingsModel {
         });
 
         try {
-            const url = this.#config.backendProtocol + this.#config.backendHost + ":" + this.#config.backendPort + "/admin/settings";
+            const url = this.#config.backendUrl + "/admin/settings";
             res = await this.putDataToBackend(url, body);
         } catch(error) {
             throw error;

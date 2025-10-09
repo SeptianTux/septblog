@@ -142,6 +142,13 @@ async fn js_model(name: web::Path<String>) -> impl Responder {
     return get(file)
 }
 
+#[get("/js/Utils/{name}")]
+async fn js_utils(name: web::Path<String>) -> impl Responder {
+    let file: String = "/var/www/septblog/public/js/Utils/".to_owned() + &name;
+
+    return get(file)
+}
+
 #[get("/assets/img/{name}")]
 async fn assets_img(name: web::Path<String>) -> impl Responder {
     let file: String = "/var/www/septblog/public/assets/img/".to_owned() + &name;
@@ -356,6 +363,7 @@ pub async fn main() -> std::io::Result<()> {
             .service(js_view)
             .service(js_viewmodel)
             .service(js_model)
+            .service(js_utils)
             .service(assets_img)
             .service(admin)
 

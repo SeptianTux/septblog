@@ -1,9 +1,9 @@
 'use strict';
 
-import { Config } from "../../../js/config.js";
-import { HttpError } from "../Errors/HttpError.js";
-import { InternalServerError } from "../Errors/InternalServerError.js";
-import { User } from "./User.js";
+import { Config } from "../config.js";
+import { HttpError } from "../../admin/js/Errors/HttpError.js";
+import { InternalServerError } from "../../admin/js/Errors/InternalServerError.js";
+//import { User } from "./User.js";
 
 export class Page {
     static async getSiteTitle() {
@@ -38,7 +38,7 @@ export class Page {
         let config = new Config();
 
         try {
-            const url = config.backendUrl + ":" + config.backendPort + "/get-site-tagline";
+            const url = config.backendUrl + "/get-site-tagline";
 
             get = await fetch(url, {
                 method: "GET"
@@ -86,12 +86,6 @@ export class Page {
         document.title = siteTitle + " | " + siteTagline;
     }
 
-    static async setSiteTitleAdmin() {
-        const siteTitle = await this.getSiteTitle();
-
-        document.title = siteTitle + " | Admin";
-    }
-
     static async setNavbarBrand() {
         const siteTitle = await this.getSiteTitle();
         const navbarBrand = document.getElementById("navbarBrand");
@@ -106,14 +100,5 @@ export class Page {
 
         copyrightElement.replaceChildren();
         copyrightElement.insertAdjacentHTML("beforeend", copyrightText);
-    }
-
-    static async setLoggedInAs() {
-        const user = await User.getLoggedInAs();
-
-        if (user !== null) {
-            document.getElementById("loggedInAs").replaceChildren();
-            document.getElementById("loggedInAs").insertAdjacentHTML("beforeend", user);
-        }
     }
 }

@@ -38,7 +38,7 @@ Create a database to store site's data. SeptBlog uses MySQL database.
 
 ### Edit Configuration File
 Use your favourite editor with superuser privilage.
-Edit ```/etc/septblog/frontend.json``` file and fill all the configuration file need.
+Edit ```/var/www/septblog/public/js/config.js``` file and fill all the configuration file need.
 Edit ```/etc/septblog/backend.json``` file and fill all the configuration file need.
 
 ### Start SeptBlog Frontend Service

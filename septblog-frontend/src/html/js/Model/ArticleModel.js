@@ -2,6 +2,7 @@
 
 export class ArticleModel {
     #config = null;
+    #backend = null;
 
     constructor(config) {
         this.#config = config;
@@ -25,7 +26,7 @@ export class ArticleModel {
         let res = null;
 
         try {
-            const url = this.#config.backendProtocol + this.#config.backendHost + ":" + this.#config.backendPort + "/article/" + id;
+            const url = this.#config.backendUrl + "/article/" + id;
             res = await this.getDataFromBackend(url);
         } catch(error) {
             throw error;

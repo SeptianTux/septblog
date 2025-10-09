@@ -21,7 +21,7 @@ export class ChangePasswordModel {
             new_password_repeat: newPasswordRepeat
         });
 
-        const url = this.#config.backendProtocol + this.#config.backendHost + ":" + this.#config.backendPort + "/admin/security/change-password"; 
+        const url = this.#config.backendUrl + "/admin/security/change-password"; 
 
         try {
             res = await fetch(url, {

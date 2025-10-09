@@ -31,7 +31,8 @@ export class CategoryModel {
         }
 
         try {
-            const url = this.#config.backendProtocol + this.#config.backendHost + ":" + this.#config.backendPort + "/category/" + categoryName + "/" + page;
+            const url = this.#config.backendUrl + "/category/" + categoryName + "/" + page;
+
             res = await this.getDataFromBackend(url);
         } catch(error) {
             throw error;

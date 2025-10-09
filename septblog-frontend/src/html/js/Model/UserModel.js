@@ -25,7 +25,7 @@ export class UserModel {
         let res = null;
 
         try {
-            const url = this.#config.backendProtocol + this.#config.backendHost + ":" + this.#config.backendPort + "/user/" + username;
+            const url = this.#config.backendUrl + "/user/" + username;
             res = await this.getDataFromBackend(url);
         } catch(error) {
             throw error;

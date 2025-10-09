@@ -1,7 +1,7 @@
 'use strict';
 
 import { NotFoundError } from "../../admin/js/Errors/NotFoundError.js";
-import { Page } from "../../admin/js/Utils/Page.js";
+import { Page } from "../Utils/Page.js";
 import { CategoryViewModel } from "../ViewModel/CategoryViewModel.js";
 
 export class CategoryView {

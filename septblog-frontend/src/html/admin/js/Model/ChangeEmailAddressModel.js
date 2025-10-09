@@ -19,7 +19,7 @@ export class ChangeEmailAddressModel {
             new_email_address: newEailAddress
         });
 
-        const url = this.#config.backendProtocol + this.#config.backendHost + ":" + this.#config.backendPort + "/admin/security/change-email"; 
+        const url = this.#config.backendUrl + "/admin/security/change-email"; 
 
         try {
             res = await fetch(url, {

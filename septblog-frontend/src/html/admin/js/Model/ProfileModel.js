@@ -33,7 +33,7 @@ export class ProfileModel {
         let res = null;
 
         try {
-            const url = this.#config.backendProtocol + this.#config.backendHost + ":" + this.#config.backendPort + "/admin/profile";
+            const url = this.#config.backendUrl + "/admin/profile";
             res = await this.fetchDataFromBackend(url);
         } catch(error) {
             throw error;
@@ -81,7 +81,7 @@ export class ProfileModel {
         let res = null;
 
         try {
-            const url = this.#config.backendProtocol + this.#config.backendHost + ":" + this.#config.backendPort + "/admin/profile";
+            const url = this.#config.backendUrl + "/admin/profile";
             res = await this.putDataToBackend(url, body);
         } catch(error) {
             throw error;
@@ -97,7 +97,7 @@ export class ProfileModel {
             throw new UnauthorizedError("Unauthorized.");
         }
 
-        const url = this.#config.backendProtocol + this.#config.backendHost + ":" + this.#config.backendPort + "/admin/image-upload";
+        const url = this.#config.backendUrl + "/admin/image-upload";
 
         xhr.open("PUT", url, true);
         xhr.setRequestHeader("Authorization", "Bearer " + accessToken);

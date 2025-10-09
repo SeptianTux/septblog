@@ -61,7 +61,7 @@ export class UsersModel {
         }
 
         try {
-            const url = this.#config.backendProtocol + this.#config.backendHost + ":" + this.#config.backendPort + "/admin/users/" + page;
+            const url = this.#config.backendUrl + "/admin/users/" + page;
             res = await this.getDataFromBackend(url);
         } catch(error) {
             throw error;
@@ -74,7 +74,7 @@ export class UsersModel {
         let res = null;
 
         try {
-            const url = this.#config.backendProtocol + this.#config.backendHost + ":" + this.#config.backendPort + "/admin/users/1/" + userId;
+            const url = this.#config.backendUrl + "/admin/users/1/" + userId;
             res = await this.putDataToBackend(url);
         } catch(error) {
             throw error;
@@ -87,7 +87,7 @@ export class UsersModel {
         let res = null;
 
         try {
-            const url = this.#config.backendProtocol + this.#config.backendHost + ":" + this.#config.backendPort + "/admin/users/2/" + userId;
+            const url = this.#config.backendUrl + "/admin/users/2/" + userId;
             res = await this.putDataToBackend(url);
         } catch(error) {
             throw error;
@@ -100,7 +100,7 @@ export class UsersModel {
         let res = null;
 
         try {
-            const url = this.#config.backendProtocol + this.#config.backendHost + ":" + this.#config.backendPort + "/admin/users/3/" + userId;
+            const url = this.#config.backendUrl + "/admin/users/3/" + userId;
             res = await this.putDataToBackend(url);
         } catch(error) {
             throw error;
@@ -113,7 +113,7 @@ export class UsersModel {
         let res = null;
 
         try {
-            const url = this.#config.backendProtocol + this.#config.backendHost + ":" + this.#config.backendPort + "/admin/get-user-level";
+            const url = this.#config.backendUrl + "/admin/get-user-level";
             res = await this.getDataFromBackend(url);
         } catch(error) {
             throw error;

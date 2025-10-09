@@ -31,7 +31,7 @@ export class IndexModel {
         }
 
         try {
-            const url = this.#config.backendProtocol + this.#config.backendHost + ":" + this.#config.backendPort + "/articles/" + page;
+            const url = this.#config.backendUrl + "/articles/" + page;
             res = await this.getDataFromBackend(url);
         } catch(error) {
             throw error;

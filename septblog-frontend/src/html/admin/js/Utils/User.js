@@ -15,7 +15,7 @@ export class User {
         }
 
         try {
-            const url = config.backendProtocol + config.backendHost + ":" + config.backendPort + "/admin/check-credentials";
+            const url = config.backendUrl + "/admin/check-credentials";
             const checkCredentials = await fetch(url, {
                 method: "GET",
                 headers: {
@@ -45,7 +45,7 @@ export class User {
         }
 
         try {
-            const url = config.backendProtocol + config.backendHost + ":" + config.backendPort + "/admin/logged-in-as";
+            const url = config.backendUrl + "/admin/logged-in-as";
 
             get = await fetch(url, {
                 method: "GET",
@@ -82,7 +82,7 @@ export class User {
         }
 
         try {
-            const url = config.backendProtocol + config.backendHost + ":" + config.backendPort + "/admin/get-user-level";
+            const url = config.backendUrl + "/admin/get-user-level";
             res = await fetch(url, {
                 method: "GET",
                 headers: {

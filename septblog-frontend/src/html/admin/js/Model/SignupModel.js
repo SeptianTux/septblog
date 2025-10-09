@@ -18,7 +18,7 @@ export class SignupModel {
         let res = null;
 
         try {
-            const url = this.#config.backendProtocol + this.#config.backendHost + ":" + this.#config.backendPort + "/admin/signup";
+            const url = this.#config.backendUrl + "/admin/signup";
 
             res = await fetch(url, {
                 method: "PUT",

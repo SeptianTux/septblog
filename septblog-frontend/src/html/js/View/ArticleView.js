@@ -1,7 +1,7 @@
 'use strict';
 
 import { NotFoundError } from "../../admin/js/Errors/NotFoundError.js";
-import { Page } from "../../admin/js/Utils/Page.js";
+import { Page } from "../Utils/Page.js";
 import { ArticleViewModel } from "../ViewModel/ArticleViewModel.js";
 
 export class ArticleView {
@@ -29,8 +29,6 @@ export class ArticleView {
     async #setCopyright() {
         await Page.setCopyright();
     }
-
-    
 
     #getArticleIdFromUrl() {
         const pathSegments = window.location.pathname.split("/").filter(segment => segment);
@@ -71,8 +69,6 @@ export class ArticleView {
     async setArticleData() {
         const articleId = this.#getArticleIdFromUrl();
         const articleData = await this.getArticleFromBackend(articleId);
-
-        console.log(articleData);
 
         this.setArticleTitle(articleData.title);
         this.setArticleContent(articleData.content);

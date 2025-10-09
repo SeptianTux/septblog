@@ -11,8 +11,6 @@ export class ArticleViewModel {
     constructor(config) {
         this.#config = config;
         this.model = new ArticleModel(this.#config);
-
-        this.getArticleFromBackend('ATFfuYTf');
     }
 
     async getArticleFromBackend(id) {

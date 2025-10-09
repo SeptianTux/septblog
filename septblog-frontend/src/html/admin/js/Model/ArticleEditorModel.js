@@ -60,7 +60,7 @@ export class ArticleEditorModel {
         let res = null;
 
         try {
-            const url = this.#config.backendProtocol + this.#config.backendHost + ":" + this.#config.backendPort + "/admin/article-editor/get-article-categories";
+            const url = this.#config.backendUrl + "/admin/article-editor/get-article-categories";
             res = await this.fetchDataFromBackend(url, "GET");
         } catch(error) {
             throw error;
@@ -73,7 +73,7 @@ export class ArticleEditorModel {
         let res = null;
 
         try {
-            const url = this.#config.backendProtocol + this.#config.backendHost + ":" + this.#config.backendPort + "/admin/article-editor/get-article/" + articleId;
+            const url = this.#config.backendUrl + "/admin/article-editor/get-article/" + articleId;
             res = await this.fetchDataFromBackend(url, "GET");
         } catch(error) {
             throw error;
@@ -99,7 +99,7 @@ export class ArticleEditorModel {
         let res = null;
 
         try {
-            const url = this.#config.backendProtocol + this.#config.backendHost + ":" + this.#config.backendPort + "/admin/article-editor"; 
+            const url = this.#config.backendUrl + "/admin/article-editor"; 
             res = this.putDataToBackend(url, body);
         } catch(error) {
             throw error;
@@ -125,7 +125,7 @@ export class ArticleEditorModel {
         let res = null;
 
         try {
-            const url = this.#config.backendProtocol + this.#config.backendHost + ":" + this.#config.backendPort + "/admin/article-editor"; 
+            const url = this.#config.backendUrl + "/admin/article-editor"; 
             res = this.putDataToBackend(url, body);
         } catch(error) {
             throw error;
@@ -151,7 +151,7 @@ export class ArticleEditorModel {
         let res = null;
 
         try {
-            const url = this.#config.backendProtocol + this.#config.backendHost + ":" + this.#config.backendPort + "/admin/article-editor"; 
+            const url = this.#config.backendUrl + "/admin/article-editor"; 
             res = this.putDataToBackend(url, body);
         } catch(error) {
             throw error;
@@ -167,7 +167,7 @@ export class ArticleEditorModel {
             throw new UnauthorizedError("Unauthorized.");
         }
 
-        const url = this.#config.backendProtocol + this.#config.backendHost + ":" + this.#config.backendPort + "/admin/image-upload";
+        const url = this.#config.backendUrl + "/admin/image-upload";
 
         xhr.open("PUT", url, true);
         xhr.setRequestHeader("Authorization", "Bearer " + accessToken);

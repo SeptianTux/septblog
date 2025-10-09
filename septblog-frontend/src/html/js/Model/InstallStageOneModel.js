@@ -11,7 +11,7 @@ export class InstallStageOneModel {
         let get = null;
 
         try {
-            const url = this.#config.backendProtocol + this.#config.backendHost + ":" + this.#config.backendPort + "/already-installed";
+            const url = this.#config.backendUrl + "/already-installed";
             
             get = await fetch(url, {
                 method: "GET"

@@ -35,7 +35,7 @@ export class IndexModel {
         let res = null;
 
         try {
-            const url = this.#config.backendProtocol + this.#config.backendHost + ":" + this.#config.backendPort + "/admin/dashboard/chart/" + start + "/" + end;
+            const url = this.#config.backendUrl + "/admin/dashboard/chart/" + start + "/" + end;
             res = await this.fetchDataFromBackend(url, "GET");
         } catch(error) {
             throw error;
@@ -48,7 +48,7 @@ export class IndexModel {
         let res = null;
 
         try {
-            const url = this.#config.backendProtocol + this.#config.backendHost + ":" + this.#config.backendPort + "/admin/dashboard/visitors";
+            const url = this.#config.backendUrl + "/admin/dashboard/visitors";
             res = await this.fetchDataFromBackend(url, "GET");
         } catch(error) {
             throw error;

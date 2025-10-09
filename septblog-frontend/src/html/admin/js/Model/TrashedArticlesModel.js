@@ -35,7 +35,7 @@ export class TrashedArticlesModel {
         let res = null;
 
         try {
-            const url = this.#config.backendProtocol + this.#config.backendHost + ":" + this.#config.backendPort + "/admin/trashed-articles/" + page;
+            const url = this.#config.backendUrl + "/admin/trashed-articles/" + page;
             res = await this.fetchDataFromBackend(url, "GET");
         } catch(error) {
             throw error;
@@ -48,7 +48,7 @@ export class TrashedArticlesModel {
         let res = null;
 
         try {
-            const url = this.#config.backendProtocol + this.#config.backendHost + ":" + this.#config.backendPort + "/admin/articles/delete/" + articleId;
+            const url = this.#config.backendUrl + "/admin/articles/delete/" + articleId;
             res = await this.fetchDataFromBackend(url, "GET");
         } catch(error) {
             throw error;

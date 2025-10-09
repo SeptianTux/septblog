@@ -50,19 +50,6 @@ copy_config_file() {
 
         exit 235;
     fi
-
-    if [ -f septblog-frontend/src/config.json ]; then
-        if [ ! -f /etc/septblog/frontend.json ]; then
-            cp -v septblog-frontend/src/config.json /etc/septblog/frontend.json;
-            chmod 640 /etc/septblog/frontend.json;
-            chown -v root:septblog /etc/septblog/frontend.json;
-        fi
-    else
-        echo "Missing septblog-frontend/src/config.json file...";
-        echo "Installation aborted...";
-
-        exit 236;
-    fi
 }
 
 create_user() {

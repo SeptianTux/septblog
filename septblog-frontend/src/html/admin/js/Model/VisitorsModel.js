@@ -41,7 +41,7 @@ export class VisitorsModel {
         }
 
         try {
-            const url = this.#config.backendProtocol + this.#config.backendHost + ":" + this.#config.backendPort + "/admin/visitors/" + page;
+            const url = this.#config.backendUrl + "/admin/visitors/" + page;
             res = await this.getDataFromBackend(url);
         } catch(error) {
             throw error;

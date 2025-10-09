@@ -1,6 +1,6 @@
 'use strict';
 
-import { Page } from "../../admin/js/Utils/Page.js";
+import { Page } from "../Utils/Page.js";
 import { ContactViewModel } from "../ViewModel/ContactViewModel.js";
 
 export class ContactView {

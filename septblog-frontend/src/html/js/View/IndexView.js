@@ -1,7 +1,7 @@
 'use strict';
 
 import { HttpError } from "../../admin/js/Errors/HttpError.js";
-import { Page } from "../../admin/js/Utils/Page.js";
+import { Page } from "../Utils/Page.js";
 import { IndexViewModel } from "../ViewModel/IndexViewModel.js";
 
 export class IndexView {

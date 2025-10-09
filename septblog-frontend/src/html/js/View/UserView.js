@@ -2,7 +2,7 @@
 
 import { HttpError } from "../../admin/js/Errors/HttpError.js";
 import { NotFoundError } from "../../admin/js/Errors/NotFoundError.js";
-import { Page } from "../../admin/js/Utils/Page.js";
+import { Page } from "../Utils/Page.js";
 import { UserViewModel } from "../ViewModel/UserViewModel.js";
 
 export class UserView {

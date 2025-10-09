@@ -3,16 +3,16 @@
 import { HttpError  } from "../Errors/HttpError.js";
 
 export class LoginModel {
-    config = null;
+    #config = null;
     constructor(config) {
-        this.config = config;
+        this.#config = config;
     }
 
     async login(email, password) {
         let res = null;
         
         try {
-            const url = this.config.backendProtocol + this.config.backendHost + ":" + this.config.backendPort + "/admin/login";
+            const url = this.#config.backendUrl + "/admin/login";
 
             res = await fetch(url, {
                 method: "POST",
