@@ -36,7 +36,7 @@ sudo ./install.sh
 ### Create Database
 Create a database to store site's data. SeptBlog uses MySQL database.
 
-### Edit Configuration File
+### Edit Configuration Files
 Use your favourite editor with superuser privilage.
 Edit ```/var/www/septblog/public/js/config.js``` file and fill all the configuration file need.
 Edit ```/etc/septblog/backend.json``` file and fill all the configuration file need.
