@@ -99,6 +99,7 @@ export class LoginView {
                 if (error instanceof TypeError) {
                     this.alertClose();
                     this.alertDanger("Problem in connecting to the server.");
+                    this.#enableForm();
                     this.buttonNormal();
                 }
             }
@@ -124,6 +125,9 @@ export class LoginView {
                 this.buttonNormal();
                 this.#enableForm();
             }
+        } else {
+            this.buttonNormal();
+            this.#enableForm();
         }
     }
 
