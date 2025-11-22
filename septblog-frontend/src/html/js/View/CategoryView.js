@@ -17,21 +17,19 @@ export class CategoryView {
         this.viewModel = new CategoryViewModel(this.#config);
 
         this.init();
-
-        this.#setSiteTitle();
-        this.#setNavbarBrand();
-        this.#setCopyright();
     }
 
     async init() {
         this.#setItsLoadingArticlesNow(true);
-        this.addInfiniteScrolSpinner();
         await this.loadArticles();
-        this.removeInfiniteScrollSpinner();
         this.#setItsLoadingArticlesNow(false);
 
         this.#infiniteScrollListener();
         this.#itsShouldLoadMore();
+
+        this.#setSiteTitle();
+        this.#setNavbarBrand();
+        this.#setCopyright();
     }
 
     async #setSiteTitle() {
@@ -174,6 +172,17 @@ export class CategoryView {
 
     async loadArticles() {
         let articles = await this.#articles();
+
+        if (!document.getElementById("categoryArticlesContainer").hasChildNodes()) {
+            const categoryArticlesContainer = '<div class="category-articles-container border shadow-lg rounded-8px">' +
+                                                    '<div id="alertContainer" class="margin-8px"></div>' +
+                                                    '<div id="categoryArticles" class="category-articles margin-8px"></div>' +
+                                                    '<div class="page-footer text-muted">' +
+                                                        '<small id="copyright"></small>' +
+                                                    '</div>' +
+                                                '</div>';
+            document.getElementById("categoryArticlesContainer").insertAdjacentHTML("beforeend", categoryArticlesContainer);
+        }
 
         if (articles === null) {
             if (this.#pageCounter === 2) {

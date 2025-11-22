@@ -98,7 +98,9 @@ export class Page {
         const copyrightText = "Copyright &copy; " + fullYear;
         const copyrightElement = document.getElementById("copyright");
 
-        copyrightElement.replaceChildren();
-        copyrightElement.insertAdjacentHTML("beforeend", copyrightText);
+        if (copyrightElement) {
+            copyrightElement.replaceChildren();
+            copyrightElement.insertAdjacentHTML("beforeend", copyrightText);
+        }
     }
 }
