@@ -15,7 +15,7 @@ install_binary_files() {
 
     if systemctl is-active septblog-backend.service --quiet; then
         systemctl stop septblog-backend.service;
-        backend_stopped = 1;
+        backend_stopped=1;
     fi
 
     if [ -f septblog-backend/target/release/septblog-backend ]; then
@@ -29,7 +29,7 @@ install_binary_files() {
 
     if systemctl is-active septblog-frontend.service --quiet; then
         systemctl stop septblog-frontend.service;
-        frontend_stopped = 1;
+        frontend_stopped=1;
     fi
 
     if [ -f septblog-frontend/target/release/septblog-frontend ]; then
