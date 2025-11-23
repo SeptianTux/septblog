@@ -83,10 +83,8 @@ export class IndexView {
     async #itsShouldLoadMore() {
         while(this.#shouldLoadMore() && this.#isBackendHasMore) {
             this.#setItsLoadingArticlesNow(true);
-            this.addInfiniteScrolSpinner();
             await this.loadArticles();
             this.#increaseHomePageCounter();
-            this.removeInfiniteScrollSpinner();
             this.#setItsLoadingArticlesNow(false);
         }
     }
