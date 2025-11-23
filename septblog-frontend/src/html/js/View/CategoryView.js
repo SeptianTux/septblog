@@ -91,9 +91,7 @@ export class CategoryView {
     async #itsShouldLoadMore() {
         while(this.#shouldLoadMore() && this.#isBackendHasMore) {
             this.#setItsLoadingArticlesNow(true);
-            this.addInfiniteScrolSpinner();
             await this.loadArticles();
-            this.removeInfiniteScrollSpinner();
             this.#setItsLoadingArticlesNow(false);
         }
     }
