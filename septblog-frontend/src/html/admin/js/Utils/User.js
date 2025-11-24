@@ -8,7 +8,7 @@ import { UnauthorizedError } from "../Errors/UnauthorizedError.js";
 export class User {
     static async checkCredentials() {
         const accessToken = localStorage.getItem("access_token");
-        let config = new Config();
+        const config = new Config();
 
         if (!accessToken) {
             return false;

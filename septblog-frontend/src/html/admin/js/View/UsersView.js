@@ -23,6 +23,8 @@ export class UsersView {
         this.#config = config;
         this.viewModel = new UsersViewModel(this.#config);
 
+        this.#checkCredentials();
+
         this.#checkPrivilage();
 
         this.#init();
@@ -46,6 +48,16 @@ export class UsersView {
         this.#setLoggedInAs();
 
         this.#administratorsNavMenu();
+    }
+
+    async #checkCredentials() {
+        const checkCredentials = await User.checkCredentials();
+
+        if (!checkCredentials) {
+            this.#redirectToLoginPage();
+        } else {
+            document.getElementById('body').style.display = 'block';
+        }
     }
 
     async #administratorsNavMenu() {

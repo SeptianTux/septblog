@@ -16,6 +16,8 @@ export class SettingsView {
         this.#config = config;
         this.viewModel = new SettingsViewModel(this.#config);
 
+        this.#checkCredentials();
+
         this.#checkPrivilage();
 
         this.getSettingsDataFromBackend();
@@ -27,6 +29,16 @@ export class SettingsView {
         this.#setCopyright();
 
         this.#administratorsNavMenu();
+    }
+
+    async #checkCredentials() {
+        const checkCredentials = await User.checkCredentials();
+
+        if (!checkCredentials) {
+            this.redirectToLoginPage();
+        } else {
+            document.getElementById('body').style.display = 'block';
+        }
     }
 
     async #checkPrivilage() {

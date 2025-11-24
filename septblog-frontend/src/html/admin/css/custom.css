@@ -157,3 +157,7 @@
     margin-top: 30%;
     margin-bottom: 30%;
 }
+
+#body {
+    display: none;
+}

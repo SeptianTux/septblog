@@ -18,6 +18,8 @@ export class VisitorsView {
         this.#config = config;
         this.viewModel = new VisitorsViewModel(this.#config);
 
+        this.#checkCredentials();
+
         this.#init();
 
         this.#infiniteScrollListener();
@@ -28,6 +30,16 @@ export class VisitorsView {
         this.#setCopyright();
 
         this.#administratorsNavMenu();
+    }
+
+    async #checkCredentials() {
+        const checkCredentials = await User.checkCredentials();
+
+        if (!checkCredentials) {
+            this.#redirectToLoginPage();
+        } else {
+            document.getElementById('body').style.display = 'block';
+        }
     }
 
     async #administratorsNavMenu() {

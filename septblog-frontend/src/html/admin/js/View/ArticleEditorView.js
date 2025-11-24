@@ -18,6 +18,7 @@ export class ArticleEditorView {
         this.viewModel = new ArticleEditorViewModel(this.#config);
 
         this.#checkCredentials();
+
         this.#articleEditor();
         this.#tagifyFunc();
         this.ifArticleIdIsSetInTheUrl();
@@ -27,6 +28,16 @@ export class ArticleEditorView {
         this.#setCopyright();
 
         this.#administratorsNavMenu();
+    }
+
+    async #checkCredentials() {
+        const checkCredentials = await User.checkCredentials();
+
+        if (!checkCredentials) {
+            this.#redirectToLoginPage();
+        } else {
+            document.getElementById('body').style.display = 'block';
+        }
     }
 
     async #administratorsNavMenu() {
@@ -47,20 +58,6 @@ export class ArticleEditorView {
 
     async #setLoggedInAs() {
         await Page.setLoggedInAs();
-    }
-
-    async #checkCredentials() {
-        let credentials = null;
-        
-        try {
-            credentials = await this.viewModel.checkCredentials();
-        } catch(error) {
-            this.alertDanger("Problem in connecting to the server.");
-        }
-
-        if (credentials === false) {
-            this.#redirectToLoginPage();
-        }
     }
 
     async #tagifyFunc() {

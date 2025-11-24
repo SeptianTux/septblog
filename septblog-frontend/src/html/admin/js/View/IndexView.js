@@ -12,6 +12,9 @@ export class IndexView {
     constructor(config) {
         this.#config = config;
         this.viewModel = new IndexViewModel(this.#config);
+
+        this.#checkCredentials();
+
         this.#visitorsChart();
         this.#visitorsTable();
 
@@ -21,6 +24,18 @@ export class IndexView {
         this.#setCopyright();
 
         this.#administratorsNavMenu();
+    }
+
+    async #checkCredentials() {
+        const checkCredentials = await User.checkCredentials();
+
+        console.log(checkCredentials);
+
+        if (!checkCredentials) {
+            this.#redirectToLoginPage();
+        } else {
+            document.getElementById('body').style.display = 'block';
+        }
     }
 
     async #administratorsNavMenu() {

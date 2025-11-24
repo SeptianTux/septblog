@@ -18,6 +18,8 @@ export class ArticlesView {
     constructor(config) {
         this.#config = config;
         this.viewModel = new ArticlesViewModel(this.#config);
+
+        this.#checkCredentials();
         
         this.#init();
         this.#windowsResizeListener();
@@ -28,6 +30,16 @@ export class ArticlesView {
         this.#setCopyright();
 
         this.#administratorsNavMenu();
+    }
+
+    async #checkCredentials() {
+        const checkCredentials = await User.checkCredentials();
+
+        if (!checkCredentials) {
+            this.redirectToLoginPage();
+        } else {
+            document.getElementById('body').style.display = 'block';
+        }
     }
 
     async #administratorsNavMenu() {

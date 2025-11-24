@@ -14,6 +14,8 @@ export class ProfileView {
     constructor(config) {
         this.#config = config;
         this.viewModel = new ProfileViewModel(this.#config);
+
+        this.#checkCredentials();
         
         this.#formEnterKeyListener();
         this.setProfileData();
@@ -24,6 +26,16 @@ export class ProfileView {
         this.#setCopyright();
 
         this.#administratorsNavMenu();
+    }
+
+    async #checkCredentials() {
+        const checkCredentials = await User.checkCredentials();
+
+        if (!checkCredentials) {
+            this.redirectToLoginPage();
+        } else {
+            document.getElementById('body').style.display = 'block';
+        }
     }
 
     async #administratorsNavMenu() {

@@ -45,16 +45,12 @@ export class ChangePasswordView {
     }
 
     async #checkCredentials() {
-        let credentials = null;
-        
-        try {
-            credentials = await this.viewModel.checkCredentials();
-        } catch(error) {
-            this.alertDanger("Problem in connecting to the server.");
-        }
+        const checkCredentials = await User.checkCredentials();
 
-        if (credentials === false) {
+        if (!checkCredentials) {
             this.#redirectToLoginPage();
+        } else {
+            document.getElementById('body').style.display = 'block';
         }
     }
 
