@@ -53,6 +53,7 @@
 .home-articles-container, .category-articles-container {
     background-color: #ffffff;
     margin-bottom: 25px;
+    display: none;
 }
 
 .home-articles-no-articles, .category-articles-no-articles {

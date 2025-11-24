@@ -16,6 +16,8 @@ export class CategoryView {
         this.#config = config;
         this.viewModel = new CategoryViewModel(this.#config);
 
+        this.#setNavbarBrand();
+        this.#setSiteTitle();
         this.init();
     }
 
@@ -27,8 +29,6 @@ export class CategoryView {
         this.#infiniteScrollListener();
         this.#itsShouldLoadMore();
 
-        this.#setSiteTitle();
-        this.#setNavbarBrand();
         this.#setCopyright();
     }
 
@@ -171,15 +171,8 @@ export class CategoryView {
     async loadArticles() {
         let articles = await this.#articles();
 
-        if (!document.getElementById("categoryArticlesContainer").hasChildNodes()) {
-            const categoryArticlesContainer = '<div class="category-articles-container border shadow-lg rounded-8px">' +
-                                                    '<div id="alertContainer" class="margin-8px"></div>' +
-                                                    '<div id="categoryArticles" class="category-articles margin-8px"></div>' +
-                                                    '<div class="page-footer text-muted">' +
-                                                        '<small id="copyright"></small>' +
-                                                    '</div>' +
-                                                '</div>';
-            document.getElementById("categoryArticlesContainer").insertAdjacentHTML("beforeend", categoryArticlesContainer);
+        if (document.getElementById('categoryArticlesContainer').style.display === '') {
+            document.getElementById('categoryArticlesContainer').style.display = 'block';
         }
 
         if (articles === null) {

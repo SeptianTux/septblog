@@ -16,6 +16,9 @@ export class IndexView {
         this.#config = config;
         this.viewModel = new IndexViewModel(this.#config);
 
+        this.#setNavbarBrand();
+        this.#setSiteTitle();
+
         this.init();
     }
 
@@ -27,8 +30,6 @@ export class IndexView {
         this.#infiniteScrollListener();
         this.#itsShouldLoadMore();
 
-        this.#setSiteTitle();
-        this.#setNavbarBrand();
         this.#setCopyright();
     }
 
@@ -163,15 +164,8 @@ export class IndexView {
     async loadArticles() {
         const articles = await this.#articles();
 
-        if (!document.getElementById("homeArticlesContainer").hasChildNodes()) {
-            const homeArticleContainer = '<div class="home-articles-container border shadow-lg rounded-8px">' +
-                                        '<div id="alertContainer" class="margin-8px"></div>' +
-                                        '<div id="homeArticles" class="home-articles margin-8px"></div>' +
-                                        '<div class="page-footer text-muted">' +
-                                            '<small id="copyright"></small>' +
-                                        '</div>' +
-                                    '</div>';
-            document.getElementById("homeArticlesContainer").insertAdjacentHTML("beforeend", homeArticleContainer);
+        if (document.getElementById('homeArticlesContainer').style.display === '') {
+            document.getElementById('homeArticlesContainer').style.display = 'block';
         }
 
         if (articles === null) {
